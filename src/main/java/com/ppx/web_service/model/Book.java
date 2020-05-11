@@ -7,8 +7,8 @@ public class Book {
 	private long book_id;
 	private URI book_img;
 	private String book_name;
-	private float book_star;
-	private int book_commentCount;
+	private Float book_star;
+	private Integer book_commentCount;
 	private String book_author;
 	private String book_publish;
 	private Date book_date;
