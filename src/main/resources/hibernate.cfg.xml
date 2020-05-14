@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+        <!--
+        数据库参数
+        -->
+        <property name="connection.url">jdbc:mysql://cdb-e0agigrr.gz.tencentcdb.com:10087/test1.0</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">16251425Zyq</property>
+
+        <!--
+        Hibernate参数
+        -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</property>
+
+        <!--
+        映射
+        -->
+        <mapping class="com.ppx.web_service.entity.BookTagKey"/>
+        <mapping class="com.ppx.web_service.entity.Book"/>
+        <mapping class="com.ppx.web_service.entity.BookTag"/>
+        <mapping class="com.ppx.web_service.entity.Comment"/>
+        <mapping class="com.ppx.web_service.entity.Tag"/>
+
+    </session-factory>
+</hibernate-configuration>
+
