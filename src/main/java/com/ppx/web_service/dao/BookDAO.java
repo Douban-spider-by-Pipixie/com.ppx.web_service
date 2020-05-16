@@ -23,7 +23,10 @@ public class BookDAO extends BasicDAO {
 	}
 
 	@Override
-	Query getQueryByHQL(String hql) {
+	public Query getQueryByHQL(String hql) {
 		return super.getQueryByHQL(hql);
 	}
 }
+
+
+

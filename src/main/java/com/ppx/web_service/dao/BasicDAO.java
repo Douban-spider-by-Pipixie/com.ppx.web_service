@@ -8,21 +8,19 @@ import org.hibernate.query.Query;
 
 public abstract class BasicDAO {
 
-	private static SessionFactory sessionFactory = null;
-	private static Transaction tx = null;
+	private SessionFactory sessionFactory = null;
+	private Transaction tx = null;
 
 	public BasicDAO(){
-		makeConnect();
-	}
-
-	private void makeConnect(){
 		try {
 			Configuration config = new Configuration().configure();
+			System.out.println(config);
 			sessionFactory = config.buildSessionFactory();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+
 
 	//增
 	public boolean insert(Object o){
@@ -67,7 +65,7 @@ public abstract class BasicDAO {
 	}
 
 	//查
-	Query getQueryByHQL(String hql){
+	public Query getQueryByHQL(String hql){
 		Session session = sessionFactory.openSession();
 		tx = session.beginTransaction();
 		Query q = session.createQuery(hql);

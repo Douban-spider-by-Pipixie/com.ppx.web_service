@@ -13,9 +13,7 @@ public class BookTagKey implements Serializable {
 	public boolean equals(Object obj) {
 		if (obj instanceof BookTagKey) {
 			BookTagKey key = (BookTagKey) obj;
-			if (this.bookID == key.bookID && this.tagName == key.tagName) {
-				return true;
-			}
+			return this.bookID == key.bookID && this.tagName == key.tagName;
 		}
 		return false;
 	}

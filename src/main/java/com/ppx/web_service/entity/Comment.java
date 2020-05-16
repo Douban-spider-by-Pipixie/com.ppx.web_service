@@ -2,6 +2,7 @@ package com.ppx.web_service.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
@@ -13,6 +14,7 @@ public class Comment {
 	@Column(name = "cdate")
 	private String date;
 
+	@Id
 	@Column(name = "comment")
 	private String comment;
 

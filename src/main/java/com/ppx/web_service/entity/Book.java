@@ -32,6 +32,9 @@ public class Book {
 	@Column(name = "book_date")
 	private String date;
 
+	@Column(name = "book_price")
+	private String price;
+
 	public String getId() {
 		return id;
 	}
@@ -103,6 +106,4 @@ public class Book {
 	public void setPrice(String price) {
 		this.price = price;
 	}
-
-	private String price;
 }
