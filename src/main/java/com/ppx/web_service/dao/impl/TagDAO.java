@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public class TagDAO extends BasicDao<Tag> {
+
 	public TagDAO() {
 		super();
 	}
