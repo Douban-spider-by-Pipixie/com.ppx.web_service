@@ -24,9 +24,9 @@ Hibernate 操作数据库的基本方法的泛型实现：
 */
 
 //重构：Extract Class 提取到类
-public abstract class BasicDao<T> implements IBasicDAO {
-	private Class<T> entityClass;
-	private SessionFactory sessionFactory;
+public abstract class BasicDao<T> implements IBasicDAO<T> {
+	private final Class<T> entityClass;
+	private final SessionFactory sessionFactory;
 	private Transaction transaction;
 
 	public BasicDao(){
@@ -45,7 +45,7 @@ public abstract class BasicDao<T> implements IBasicDAO {
 	@Override
 	public T get(Serializable id) {
 		Session session = sessionFactory.openSession();
-		return (T)session.get(entityClass,id);
+		return session.get(entityClass,id);
 	}
 
 	@Override
@@ -64,14 +64,14 @@ public abstract class BasicDao<T> implements IBasicDAO {
 	}
 
 	@Override
-	public List<T> find(String hql) {
+	public List<T> query(String hql) {
 		Session session = sessionFactory.openSession();
 		Query query = session.createQuery(hql);
 		return (List<T>)query.list();
 	}
 
 	@Override
-	public void save(Object o) {
+	public void insert(Object o) {
 		Session session = sessionFactory.openSession();
 		transaction = session.beginTransaction();
 		session.save(o);
@@ -79,7 +79,7 @@ public abstract class BasicDao<T> implements IBasicDAO {
 	}
 
 	@Override
-	public void remove(Object o) {
+	public void delete(Object o) {
 		Session session = sessionFactory.openSession();
 		transaction = session.beginTransaction();
 		session.delete(o);
@@ -91,6 +91,14 @@ public abstract class BasicDao<T> implements IBasicDAO {
 		Session session = sessionFactory.openSession();
 		transaction = session.beginTransaction();
 		session.update(o);
+		transaction.commit();
+	}
+
+	@Override
+	public void insertOrUpdate(Object o) {
+		Session session = sessionFactory.openSession();
+		transaction = session.beginTransaction();
+		session.saveOrUpdate(o);
 		transaction.commit();
 	}
 }

@@ -28,6 +28,7 @@
         <mapping class="com.ppx.web_service.entity.BookTag"/>
         <mapping class="com.ppx.web_service.entity.Comment"/>
         <mapping class="com.ppx.web_service.entity.Tag"/>
+        <mapping class="com.ppx.web_service.entity.Login"/>
 
     </session-factory>
 </hibernate-configuration>
