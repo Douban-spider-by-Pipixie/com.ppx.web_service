@@ -1,5 +1,7 @@
 package com.ppx.web_service.servlet;
 
+import com.alibaba.fastjson.JSONArray;
+import com.ppx.web_service.dao.impl.TagDAO;
 import com.ppx.web_service.service.impl.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,16 +19,15 @@ public class ParamsTestServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/html;charset=UTF-8");
-		String type = req.getParameter("type");
 		String test = req.getParameter("test");
 		String json = null;
-		if(test.equals("true")){
+		if(test.equals("randomBook")){
 			UserService service = new UserService();
 			json = service.showRandomBooks();
 		}
-		if(type.equals("1")){
-			UserService service = new UserService();
-			json = service.showHotBooks();
+		if(test.equals("hotTag")){
+			TagDAO tagDAO = new TagDAO();
+			json = JSONArray.toJSONString(tagDAO.getHotTag());
 		}
 
 		//Map paramMap = request.getParameterMap();
