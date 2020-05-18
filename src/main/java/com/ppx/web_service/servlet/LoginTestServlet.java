@@ -1,6 +1,11 @@
 package com.ppx.web_service.servlet;
 
 import com.ppx.web_service.dao.impl.LoginDAO;
+import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.Mapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "LoginTestServlet",loadOnStartup = 1,urlPatterns = "/loginTest")
+@WebServlet(name = "LoginTestServlet", loadOnStartup = 1, urlPatterns = "/loginTest")
 public class LoginTestServlet extends HttpServlet {
 
 	@Override
@@ -19,12 +24,13 @@ public class LoginTestServlet extends HttpServlet {
 		LoginDAO loginDAO = new LoginDAO();
 		String name = req.getParameter("name");
 		String password = req.getParameter("password");
-		int id = loginDAO.login(name,password);
+		int id = loginDAO.login(name, password);
 		PrintWriter pw = resp.getWriter();
-		if(id==-1){
+		if (id == -1) {
 			pw.write("Login failed!");
-		}else {
-			pw.write("Your ID is:"+id);
+		} else {
+			pw.write("Your ID is:" + id);
+			req.setAttribute("userId", id);
 		}
 		pw.flush();
 	}
