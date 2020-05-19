@@ -76,7 +76,7 @@
         //主键注解方法
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-      @Column(name = "entity_id")
+        @Column(name = "entity_id")
         private String id;
 
         //非主键注解方法
