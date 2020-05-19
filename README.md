@@ -36,7 +36,6 @@ public class EntityDAO extends BasicDAO<Entity> implements IBasicDAO<Entity> {}
     要到 [hibernate.cfg.xml](src/main/resources/hibernate.cfg.xml) 配置文件中配置需要映射的类，加入：
 ```xml
 <mapping class="com.ppx.web_service.entity.Entity"/>
-```
 
     Entity类中要配置好Hibernate提供的注解，如：
 
