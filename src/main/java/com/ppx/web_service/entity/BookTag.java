@@ -1,11 +1,12 @@
 package com.ppx.web_service.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "book_tag")
 @IdClass(BookTagKey.class)
-public class BookTag {
+public class BookTag implements Serializable {
 	/*
 	联合主键
 	 */

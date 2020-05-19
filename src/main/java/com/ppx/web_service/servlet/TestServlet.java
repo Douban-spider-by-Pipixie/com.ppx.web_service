@@ -4,13 +4,8 @@ package com.ppx.web_service.servlet;
 import com.alibaba.fastjson.JSONArray;
 import com.ppx.web_service.dao.impl.TagDAO;
 import com.ppx.web_service.entity.Tag;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,5 +27,7 @@ public class TestServlet extends HttpServlet {
 		PrintWriter pw = resp.getWriter();
 		pw.write(json);
 		pw.flush();
+
+		
 	}
 }

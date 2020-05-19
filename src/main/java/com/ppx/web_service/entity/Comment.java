@@ -4,10 +4,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "commenttable_Asyn")
-public class Comment {
+public class Comment implements Serializable {
 	@Column(name = "cuser")
 	private String user;
 

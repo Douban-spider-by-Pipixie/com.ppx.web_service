@@ -24,12 +24,12 @@ Hibernate 操作数据库的基本方法的泛型实现：
 */
 
 //重构：Extract Class 提取到类
-public abstract class BasicDao<T> implements IBasicDAO<T> {
+public abstract class BasicDAO<T> implements IBasicDAO<T> {
 	private final Class<T> entityClass;
 	private final SessionFactory sessionFactory;
 	private Transaction transaction;
 
-	public BasicDao(){
+	public BasicDAO(){
 
 		// 用反射的方法获得 T.class ( T.class本身不可直接调用 )
 		Type genType = getClass().getGenericSuperclass();

@@ -1,10 +1,11 @@
 package com.ppx.web_service.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "book_Asyn")
-public class Book {
+public class Book implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "book_id")
