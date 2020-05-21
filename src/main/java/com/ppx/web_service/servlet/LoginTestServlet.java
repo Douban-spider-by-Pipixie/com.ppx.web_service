@@ -3,11 +3,6 @@ package com.ppx.web_service.servlet;
 import com.alibaba.fastjson.JSONArray;
 import com.ppx.web_service.dao.impl.LoginDAO;
 import com.ppx.web_service.entity.Login;
-import org.springframework.boot.web.servlet.ServletComponentScan;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.Mapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

@@ -23,6 +23,6 @@ public interface IBasicDAO<T> {
 	//更新：持久化操作，更新某条记录
 	void update(Object o);
 
-	//插入或更新: 持久化操作，更新该Object，若没有该Object的ID就插入
+	//插入或更新: 持久化操作，根据ID更新该Object，若没有该Object的ID就插入
 	void insertOrUpdate(Object o);
 }
