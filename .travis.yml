@@ -2,7 +2,7 @@ addons:
   sonarcloud:
     organization: "douban-spider-by-pipixie"
     token:
-      secure: "travis encrypt 7d71a8eaebbc06914e6f4aa9dc54ed5465b587a5" # encrypted value of your token
+      secure: "7d71a8eaebbc06914e6f4aa9dc54ed5465b587a5" # encrypted value of your token
 
 script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
