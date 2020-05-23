@@ -16,15 +16,13 @@
        - 返回List\<Tag>
 
 - 2020年5月23日:
-  - 热门标签API(/pt?p=hottag) 
+  - 热门标签API(/test?p=hottag) 
       - 返回List\<String>
-  -  推荐图书API(/pt?p=getbook)
+  -  推荐图书API(/test?p=getbook)
        - 返回List\<Book>
   -  登录API(/login?name=XXX&password=XXX) 
        - 返回JSON:user_id 或者 Login failed!
-  -  注册API(/reg?name=XXX&password=XXX) 
-       - 返回true/false
-  -  获得所有标签API(/pt?p=alltag)
+  -  获得所有标签API(/test?p=alltag)
      -  返回List\<Tag>
 
 ### 目录功能
