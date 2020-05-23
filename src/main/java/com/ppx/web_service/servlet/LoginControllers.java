@@ -12,9 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "LoginTestServlet", loadOnStartup = 1, urlPatterns = "/loginTest")
-public class LoginTestServlet extends HttpServlet {
+public abstract class LoginControllers {
 
+	/*
+	This is a LoginControl Servlet Package
+	 */
+
+}
+
+@WebServlet(name = "Login", loadOnStartup = 1, urlPatterns = "/login")
+class LoginControl extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/html;charset=UTF-8");
@@ -27,11 +34,21 @@ public class LoginTestServlet extends HttpServlet {
 			pw.write("Login failed!");
 		} else {
 			Login login = loginDAO.get(id);
-			pw.write(JSONArray.toJSONString(login));
+			pw.write(JSONArray.toJSONString(login.getId()));
 			req.setAttribute("userId", id);
 		}
 		pw.flush();
 	}
 }
 
-
+@WebServlet(name = "Register",loadOnStartup = 1,urlPatterns = "/reg")
+class RegisterControl extends HttpServlet {
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setContentType("text/html;charset=UTF-8");
+		String name = req.getParameter("name");
+		String password = req.getParameter("password");
+		boolean isSuccess = new LoginDAO().register(name,password);
+		resp.getWriter().write(""+isSuccess);
+	}
+}
