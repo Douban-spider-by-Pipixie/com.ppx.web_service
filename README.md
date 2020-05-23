@@ -12,10 +12,10 @@
        - ~~返回"Your ID is: XXX"~~
   -  注册API(/reg?name=XXX&password=XXX) 
        - 返回true/false
-  -  ~~获得所有标签API(/test)~~
-       - ~~返回List\<Tag>~~
+  -  获得所有标签API(~~/test~~)
+       - 返回List\<Tag>
 
-- 2020年5月23日
+- 2020年5月23日:
   - 热门标签API(/pt?p=hottag) 
       - 返回List\<String>
   -  推荐图书API(/pt?p=getbook)
@@ -24,6 +24,8 @@
        - 返回JSON:user_id 或者 Login failed!
   -  注册API(/reg?name=XXX&password=XXX) 
        - 返回true/false
+  -  获得所有标签API(/pt?p=alltag)
+     -  返回List\<Tag>
 
 ### 目录功能
 
