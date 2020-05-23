@@ -4,16 +4,26 @@
 
 ### 更新内容
 - 2020年5月19日：
-  - 热门标签API(/paramTest?test=hotTag) 
-    - 返回List\<String>
-  - 推荐图书API(/paramTest?test=getBook) 
-    - 返回List\<Book>
-  - 登录API(/loginTest?name=XXX&password=XXX) 
-    - 返回"Your ID is: XXX"
-  - 注册API(/reg?name=XXX&password=XXX) 
-    - 返回true/false
-  - 获得所有标签API(/test) 
-    - 返回List\<Tag>
+  - 热门标签API(~~/paramTest?test=hotTag~~) 
+      - 返回List\<String>
+  -  推荐图书API(~~/paramTest?test=getBook~~)
+       - 返回List\<Book>
+  -  登录API(~~/loginTest?name=XXX&password=XXX~~) 
+       - ~~返回"Your ID is: XXX"~~
+  -  注册API(/reg?name=XXX&password=XXX) 
+       - 返回true/false
+  -  ~~获得所有标签API(/test)~~
+       - ~~返回List\<Tag>~~
+
+- 2020年5月23日
+  - 热门标签API(/pt?p=hottag) 
+      - 返回List\<String>
+  -  推荐图书API(/pt?p=getbook)
+       - 返回List\<Book>
+  -  登录API(/login?name=XXX&password=XXX) 
+       - 返回JSON:user_id 或者 Login failed!
+  -  注册API(/reg?name=XXX&password=XXX) 
+       - 返回true/false
 
 ### 目录功能
 

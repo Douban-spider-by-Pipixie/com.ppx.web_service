@@ -30,6 +30,10 @@ class ParamsControl extends HttpServlet {
 			TagDAO tagDAO = new TagDAO();
 			json = JSONArray.toJSONString(tagDAO.getHotTag());
 		}
+		if(test.equals("alltag")){
+			TagDAO tagDAO = new TagDAO();
+			json = JSONArray.toJSONString(tagDAO.getAll());
+		}
 
 		//Map paramMap = request.getParameterMap();
 		//String[] paramArray = request.getParameterValues("paramName");
