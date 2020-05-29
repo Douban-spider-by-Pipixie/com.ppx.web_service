@@ -25,6 +25,11 @@
   -  获得所有标签API(/test?p=alltag)
      -  返回List\<Tag>
 
+- 2020年5月29日:
+  - 书籍详情API(/test?p=detail&id=123456789) 
+      - 返回List\<BookDetail>
+
+
 ### 目录功能
 
 1. [dao](src/main/java/com/ppx/web_service/dao)包:
