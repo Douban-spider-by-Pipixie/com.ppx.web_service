@@ -2,8 +2,10 @@ package com.ppx.web_service.servlet;
 
 import com.alibaba.fastjson.JSONArray;
 import com.ppx.web_service.dao.impl.BookDetailDAO;
+import com.ppx.web_service.dao.impl.BookTagDAO;
 import com.ppx.web_service.dao.impl.TagDAO;
 import com.ppx.web_service.entity.BookDetail;
+import com.ppx.web_service.entity.BookTag;
 import com.ppx.web_service.service.impl.UserService;
 
 import javax.servlet.ServletException;
@@ -13,6 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public abstract class TestControllers {
 }
@@ -42,8 +47,16 @@ class ParamsControl extends HttpServlet {
 		}
 		if(test.equals("detail")){
 			String bookID = req.getParameter("id");
-			BookDetailDAO detailDAO = new BookDetailDAO();
-			json = JSONArray.toJSONString(detailDAO.get(bookID));
+			json = JSONArray.toJSONString(new BookDetailDAO().get(bookID));
+		}
+		if(test.equals("tag")){
+			String bookID = req.getParameter("id");
+			List<BookTag> bookTags = new BookTagDAO().getTagByID(bookID);
+			List<String> tags = new LinkedList<>();
+			for (BookTag b:bookTags ){
+				tags.add(b.getTagName());
+			}
+			json = JSONArray.toJSONString(tags);
 		}
 
 		//Map paramMap = request.getParameterMap();
