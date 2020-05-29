@@ -1,7 +1,9 @@
 package com.ppx.web_service.servlet;
 
 import com.alibaba.fastjson.JSONArray;
+import com.ppx.web_service.dao.impl.BookDetailDAO;
 import com.ppx.web_service.dao.impl.TagDAO;
+import com.ppx.web_service.entity.BookDetail;
 import com.ppx.web_service.service.impl.UserService;
 
 import javax.servlet.ServletException;
@@ -24,7 +26,7 @@ class ParamsControl extends HttpServlet {
 		String json = null;
 		if(test.equals("getbook")){
 			UserService service = new UserService();
-			json = service.showRandomBooks();
+			json = service.showRandomBooks(6);
 		}
 		if(test.equals("hottag")){
 			TagDAO tagDAO = new TagDAO();
@@ -33,6 +35,15 @@ class ParamsControl extends HttpServlet {
 		if(test.equals("alltag")){
 			TagDAO tagDAO = new TagDAO();
 			json = JSONArray.toJSONString(tagDAO.getAll());
+		}
+		if(test.equals("rec")){
+			UserService service = new UserService();
+			json = service.showRandomBooks(9);
+		}
+		if(test.equals("detail")){
+			String bookID = req.getParameter("id");
+			BookDetailDAO detailDAO = new BookDetailDAO();
+			json = JSONArray.toJSONString(detailDAO.get(bookID));
 		}
 
 		//Map paramMap = request.getParameterMap();

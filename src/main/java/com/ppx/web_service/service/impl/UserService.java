@@ -13,20 +13,20 @@ import java.util.Random;
 
 public class UserService implements IUserService {
 	@Override
-	public String showRandomBooks() {
+	public String showRandomBooks(int n) {
 		BookDAO bookDAO = new BookDAO();
 		List<Book> bookList = bookDAO.getAll();
 		List<Book> showBook = new ArrayList<>();
 		Random random = new Random();
-		for(int i=0;i<5;i++){
-			int n = random.nextInt(bookList.size());
-			showBook.add(bookList.get(n));
+		for(int i=0;i<n;i++){
+			int j = random.nextInt(bookList.size());
+			showBook.add(bookList.get(j));
 		}
 		return JSONArray.toJSONString(showBook);
 	}
 
 	@Override
-	public String showHotBooks() {
+	public String showHotBooks(int n) {
 		TagDAO tagDAO = new TagDAO();
 		List<String> hotTag = tagDAO.getHotTag();
 		return JSONArray.toJSONString(hotTag);

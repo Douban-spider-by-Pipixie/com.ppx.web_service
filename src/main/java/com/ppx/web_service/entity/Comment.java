@@ -9,6 +9,9 @@ import java.io.Serializable;
 @Entity
 @Table(name = "commenttable_Asyn")
 public class Comment implements Serializable {
+	@Column(name = "book_id")
+	private String bookID;
+
 	@Column(name = "cuser")
 	private String user;
 
