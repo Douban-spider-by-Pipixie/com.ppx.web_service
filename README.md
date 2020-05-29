@@ -28,6 +28,8 @@
 - 2020年5月29日:
   - 书籍详情API(/test?p=detail&id=123456789) 
       - 返回List\<BookDetail>
+  - 书本标签API(/test?p=tag&id=123456789)
+      - 返回List\<String>
 
 
 ### 目录功能
