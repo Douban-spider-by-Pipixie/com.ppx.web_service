@@ -1,12 +1,10 @@
 package com.ppx.web_service.servlet;
 
 import com.alibaba.fastjson.JSONArray;
-import com.ppx.web_service.dao.impl.BookDAO;
-import com.ppx.web_service.dao.impl.BookDetailDAO;
-import com.ppx.web_service.dao.impl.BookTagDAO;
-import com.ppx.web_service.dao.impl.TagDAO;
+import com.ppx.web_service.dao.impl.*;
 import com.ppx.web_service.entity.Book;
 import com.ppx.web_service.entity.BookTag;
+import com.ppx.web_service.entity.Comment;
 import com.ppx.web_service.service.impl.UserService;
 
 import javax.servlet.ServletException;
@@ -33,7 +31,13 @@ class ParamsControl extends HttpServlet {
 		String json = null;
 		if (test.equals("getbook")) {
 			UserService service = new UserService();
-			json = service.showRandomBooks(6);
+			try{
+				String num = req.getParameter("n");
+				json = service.showRandomBooks(Integer.parseInt(num));
+			}catch (Exception e){
+				e.printStackTrace();
+				json = service.showRandomBooks(6);
+			}
 		}
 		if (test.equals("hottag")) {
 			TagDAO tagDAO = new TagDAO();
@@ -67,6 +71,11 @@ class ParamsControl extends HttpServlet {
 			List<Book> bookList = new ArrayList<>();
 			bookList = new BookDAO().getBooksByIDSet(idSet);
 			json = JSONArray.toJSONString(bookList);
+		}
+		if(test.equals("comment")){
+			String bookid = req.getParameter("id");
+			List<Comment> commentList = new CommentDAO().getAllCommentByID(bookid);
+			json = JSONArray.toJSONString(commentList);
 		}
 
 		//Map paramMap = request.getParameterMap();
